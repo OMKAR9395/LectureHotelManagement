@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider/ Carousel</title>
+</head>
+<body>
+    <img src="" alt="slider" id="slider" width="300">
+    <br>
+
+    <button onclick="prev()" id="prev">Previous</button>
+
+
+    <button onclick="next()" id="next">Next</button>
+
+    
+    <script>
+        const images = [
+           "lily.jpeg",
+           "rose.jpeg",
+           "Lotus.jpeg",
+           "Marigold.jpeg"
+        ];
+
+        let currentIndex = 0;
+
+        const slider = document.getElementById("slider");
+        slider.src = images[currentIndex];
+
+        function next(){
+            currentIndex = (currentIndex + 1) % images.length;
+            slider.src = images[currentIndex];
+        }
+
+        function prev(){
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            slider.src = images[currentIndex];
+        }
+
+        //autoplay
+
+        setInterval(next, 2000); // Change image every 3 seconds
+        </script>
+</body>
+</html>

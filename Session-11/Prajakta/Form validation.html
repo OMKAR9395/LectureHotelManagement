@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <style>
+        #error{
+            color: red;
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+<body>
+
+    <center><h2>Form Validation</h2></center>
+    <center>
+    <form id="myForm" action="">
+
+
+        <input id="name" placeholder="Name" type=""><br> <br>
+        <input type="" id="email"  placeholder="Email"> <br><br>
+        <input type="password" id="password" placeholder="Password"> <br><br>
+
+        <button type="submit" >Submit</button>
+
+        <p id="error"></p>
+    </form>
+    </center>
+
+    <script>
+        document.getElementById("myForm").onsubmit = function(event){
+
+            //method of the Event interface tells the user agent that if the event does not get explicitly handled, its default action should not be taken as it normally would be.
+     //For example, this can be used to prevent a form from being submitted when the submit button is clicked.
+            event.preventDefault(); //error rokane ke liye
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            let errorMessage = "";
+
+            if(name === "" || name.length < 2 || !isNaN(name)){  //NaN means Not a Number
+                errorMessage += "Name is required.Do not enter numbers. <br>";
+            }
+
+            if(email === "" || !email.includes("@")){
+                errorMessage += "Valid email is required @ Symbol.<br>";
+            }
+
+            if(password.length < 6){
+                errorMessage += "Password must be at least 6 characters long.<br>";
+            }
+
+            if(errorMessage){
+                document.getElementById("error").innerHTML = errorMessage;
+            } else {
+                document.getElementById("error").innerHTML = "Form submitted successfully!";
+            }
+        };
+
+        </script>
+</body>
+</html>

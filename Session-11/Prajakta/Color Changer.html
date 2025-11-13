@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        #Colorbox{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(14, 4, 4);
+            
+        }
+
+         button{
+            border: 3px solid green;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover{
+            border: 5px solid blue;
+            border-radius: 5px;
+            font-style: italic;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <center><h2>COLOR CHANGER</h2></center>
+    <center>
+    <div id="Colorbox">
+    </div>
+<br><br>
+    <button onclick="changeColor('red')">Red</button>
+    <button onclick="changeColor('blue')">Blue</button>
+    <button onclick="changeColor('green')">Green</button>
+    <button id="reset">Reset</button>
+
+    </center>
+
+    <script>
+        function changeColor(color){
+            document.getElementById("Colorbox").style.backgroundColor = color;
+        }
+
+        document.getElementById("reset").onclick = () =>{
+        document.getElementById("reset").style.backgroundColor = black;
+        alert("Color is reset");
+    };
+    </script>
+</body>
+</html>

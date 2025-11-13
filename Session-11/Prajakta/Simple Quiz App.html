@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz App</title>
+</head>
+<body>
+
+    <center>
+   <div id="quiz"></div>
+   <button id="next">Next</button> 
+   <p id="result"></p>
+
+   </center>
+
+   <script>
+    
+    const questions = [
+        { q: "2+2 = ?",             options: ["3", "4", "5"],                                                                               answer: "4" },
+        {q: "Capital of France?", options: ["Paris", "Rome", "Berlin"],                                                                     answer: "Paris"},
+        {q: "HTML stands for?", options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], answer: "Hyper Text Markup Language"}
+    ];
+
+
+    let index =0, score = 0;
+
+    const quiz = document.getElementById("quiz");
+    const nextBtn = document.getElementById("next");
+
+    loadQuestion();
+
+    function loadQuestion(){
+        const q = questions[index];
+        quiz.innerHTML = `<h3>${q.q}</h3>` + q.options.map(o => 
+            `<button class = "opt" onclick ="check('${o}')">${o}</button>`).join("");
+
+        nextBtn.style.display = "none";
+    }
+
+
+    function check(ans){
+        if(ans === questions[index].answer) score++;
+        document.querySelectorAll("opt").forEach(btn => btn.disabled = true);
+        nextBtn.style.display = "inline";
+
+    }
+
+    nextBtn.onclick = () => {
+        index++;
+        if(index < questions.length) loadQuestion();
+        else quiz.innerHTML = `<h2> Quiz Finished! Your Score: ${score}/ ${questions.length}</h2>`;
+        nextBtn.style.display = index < questions.length ? "none" : "none";
+
+    };
+
+    //JavaScript is Case Sensitive Languaage. ${score} above example if create space between $ and {score} they not work as variable who store value. its work as string. 
+
+   </script>
+
+
+</body>
+</html>

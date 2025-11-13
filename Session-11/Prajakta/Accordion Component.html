@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Component</title>
+    <style>
+        .answer{
+            display: none;
+            margin-left: 10px;
+        }
+
+        .question{
+            cursor: pointer;
+            background: #f0f0f0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="accordion">
+        <div class="item">
+            <h3 class="question">What is JavaScript?</h3>
+            <p class="answer">JavaScript is a programming language used to create dynamic websites.</p>
+        </div>
+
+        <div class="item">
+            <h3 class="question">What is HTML?</h3>
+            <p class="answer">HTML stands for HyperText Markup Language.</p>
+        </div>
+
+        <div class="item">
+            <h3 class="question">What is CSS?</h3>
+            <p class="answer">CSS stands for Cascading Style Sheets.</p>
+        </div>
+    </div>
+
+    <script>
+        const questions = document.querySelectorAll(".question");
+
+        questions.forEach(q => {
+            q.addEventListener("click", () => {
+                document.querySelectorAll(".answer").forEach(a => a.style.display = "none");
+                const answer = q.nextElementSibling;
+                answer.style.display = answer.style.display === "block" ? "none" : "block";
+            });
+        });
+
+    </script>
+</body>
+</html>

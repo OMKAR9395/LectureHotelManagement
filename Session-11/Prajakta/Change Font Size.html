@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Font Size</title>
+</head>
+<body>
+    <center>
+        <center><h2>Change Font Size</h2></center>
+
+        <p id="text"> This is some sample text that you can resize!</p>
+        <button onclick="changeFont(1)">Increase Font</button>
+        <button onclick="changeFont(-1)">Decrease Font</button>
+    </center>
+
+    <script>
+        let size = 16;
+        const text = document.getElementById("text");
+
+        function changeFont(value){
+            size += value;
+            text.style.fontSize = size + "px";
+        }
+    </script>
+</body>
+</html>

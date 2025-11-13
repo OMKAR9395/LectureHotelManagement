@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Character Counter</title>
+</head>
+<body>
+    <center>
+    <h2>Live Character Counter</h2>
+    <textarea id="textInput" rows="4" cols="50" placeholder="Type something..."></textarea>
+    <p>Character Count: <span id="charCount">0</span></p>
+
+    </center>
+
+
+    <center>
+    <h2>Live Character Counter without Space</h2>
+    <textarea id="Input" rows="4" cols="50" placeholder="Type something..."></textarea>
+    <p>Character Count: <span id="Count">0</span></p>
+
+    </center>
+    <script>
+        const textInput = document.getElementById("textInput");
+        const charCount = document.getElementById("charCount");
+
+        textInput.addEventListener("input", () => {
+            charCount.textContent = textInput.value.length;
+        });
+
+
+        // without space
+
+        const Input = document.getElementById("Input");
+        const Count = document.getElementById("Count");
+        Input.addEventListener("input", () => {
+            const textWithoutSpaces = Input.value.replace(/\s/g, '');
+            Count.textContent = textWithoutSpaces.length;
+        });
+        
+    </script>
+</body>
+</html>
